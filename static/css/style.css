@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, p {
+    /* Set styles for the content text */
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+        .hero-container h1 {
+            font-size: 60px;
+        }
+
+        .search-box input.form-control {
+            width: auto;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .hero-container h1 {
+            font-size: 100px;
+        }
+
+        .search-box input.form-control {
+            width: 500px;
+            max-width: 600px;
+        }
+    }
+.blurred-bg-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.blurred-bg-section .container {
+    backdrop-filter: blur(5px);
+}
+
+.blurred-bg-section .container h2, .blurred-bg-section .container h3, .blurred-bg-section .container p, .blurred-bg-section .container li {
+    color: black;
+}
+
+.blurred-bg-section .container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.custom-card {
+    max-width: 800px;
+
+}
+
+.custom-card img {
+    width: 100%;
+    height: 100%;
+}
+.custom-card img {
+    height: 200px;
+    object-fit: cover; /* This will crop the image to fit within the fixed size */
+}

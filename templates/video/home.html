@@ -1,0 +1,52 @@
+{% extends 'video/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-page" style="background-image: url({% static 'img/youtubett.png' %}); background-size: cover; background-position: center; padding: 50px;
+    color: white; background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity to control the blur effect */
+    backdrop-filter: blur(5px);">
+    <div class="hero-container">
+        <h1 class="pt-4">Youtube ToolBox</h1>
+        <form method="POST" class="search-box pt-5">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form1.as_p }}
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+        <p class="or-text mt-4 mb-4">OR</p>
+        <form method="POST" class="search-box">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form2.as_p }}
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="blurred-bg-section" style="background-image: url({% static 'img/youtubetoolbox.png' %});">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="container bg-white p-5 rounded-lg shadow">
+            <h2 class="text-danger text-center">Mp3 and Mp4 Download Youtube Videos</h2>
+            <p>Our platform offers you a seamless and user-friendly experience to trim your favorite Youtube videos with ease. Whether you want to highlight a specific segment, remove unwanted sections, or create engaging content for your audience, we've got you covered.</p>
+            <h2>Key Features:</h2>
+            <ul>
+                <li>Convert to MP3 or MP4: Need audio-only or video formats? We can save your trimmed videos as high-quality MP3 or MP4 files for easy sharing and enjoyment.</li>
+            </ul>
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>User-Friendly Interface: Our website is designed to be simple and straightforward, making video editing accessible to everyone.</li>
+                <li>Lightning-Fast Processing: Enjoy quick video processing times, so you can focus on creating content, not waiting for conversions.</li>
+                <li>No Watermarks: Your edited videos are free from any watermarks or branding, allowing your content to shine.</li>
+            </ul>
+            <p>Whether you're a content creator, vlogger, or just love sharing videos with friends, our Youtube Toolbox empowers you to take full control of your content.</p>
+            <p>Explore our website now and unleash your creativity with the best video editing tools at your fingertips!</p>
+            <p>Disclaimer: This website is not affiliated with or endorsed by Youtube. Youtube is a registered trademark of its respective owners. We respect copyright and encourage users to adhere to Youtube's terms of service and copyright policies.</p>
+            <p>&copy; <span id="year"></span> Youtube Toolbox. All rights reserved.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

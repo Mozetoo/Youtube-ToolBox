@@ -1,0 +1,54 @@
+{% extends 'video/base.html' %}
+{% load static %}
+{% block content %}
+<section class="blurred-bg-section " style="background-image: url({% static 'img/youtubetoolbox.png' %});">
+  <div class="d-flex justify-content-center align-items-center h-100 ">
+    <div class="container bg-white p-5 rounded-lg shadow">
+        <h2 class="text-danger text-center pb-4">Search Result</h2>
+        <div class="col">
+            <div class="ratio ratio-21x9">
+                <iframe width="560" height="315" src="{{ video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="d-flex gap-2 justify-content-center py-5">
+                 <form  method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="video_id" value="{{ video_id }}">
+                    <input type="hidden" name="download_type" value="mp3">
+                    <button type="submit" class="btn btn-outline-danger me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-music-note-beamed" viewBox="0 0 16 16">
+                            <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"></path>
+                            <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
+                            <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
+                        </svg>
+                        MP3
+                    </button>
+                </form>
+                <form  method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="video_id" value="{{ video_id }}">
+                    <input type="hidden" name="download_type" value="mp4">
+                    <button type="submit" class="btn btn-outline-danger ms-2" fdprocessedid="9vsjba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-camera-reels-fill" viewBox="0 0 16 16">
+                            <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                            <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+                            <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7z"></path>
+                        </svg>
+                        MP4
+                    </button>
+                </form>
+            </div>
+            {% if status_message %}
+                <div class="text-center mt-3">
+                    <p>{{ status_message }}</p>
+                </div>
+                {% endif %}
+
+                <div class="text-center mt-3">
+                    <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+                </div>
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock %}
